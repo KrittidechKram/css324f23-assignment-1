@@ -17,41 +17,41 @@ def successors(s):
         #to bottle 5
         if space5 > 0: 
             if x > space5:
-                yield(x - space5, 5, z)
+                yield((x - space5, 5, z), space5)
             else:
-                yield(0, x + y, z)
+                yield((0, x + y, z), x)
         #to bottle 3
         elif space3 > 0: 
             if x > space3:
-                yield(x - space3, y, 3)
+                yield((x - space3, y, 3), space3)
             else:
-                yield(0, y, x+z)
+                yield((0, y, x+z), x)
     #Action2: Pour from bottle 5
     if y > 0:
         #to bottle 8
         if space8 > 0: 
             if y > space8: ###The system should never go into this condition anyway, since there is only 8 litre of water in the system.
-                yield(8, y - space8, z)  
+                yield((8, y - space8, z), space8)
             else:
-                yield(x + y, 0, z)
+                yield((x + y, 0, z), y)
         #to bottle 3
         elif space3 > 0: 
             if y > space3:
-                yield(x, y - space3, 3)
+                yield((x, y - space3, 3), space3)
             else:
-                yield(x, 0, y+z)
+                yield((x, 0, y+z), y)
     #Action3: Pour from bottle 3
     if z > 0:
         #to bottle 8
         if space8 > 0: 
             if z > space8: ###The system should never go into this condition anyway, since there is only 8 litre of water in the system.
-                yield(8, y, z - space8)  
+                yield((8, y, z - space8), space8)  
             else:
-                yield(x + z, y, 0)
+                yield((x + z, y, 0), z)
         #to bottle 5
         elif space5 > 0: 
             if z > space5:
-                yield(x, 5, z - space5)
+                yield((x, 5, z - space5), space5)
             else:
-                yield(x, y + z, 0)
+                yield((x, y + z, 0), z)
 
