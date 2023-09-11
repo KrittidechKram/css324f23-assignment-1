@@ -21,7 +21,7 @@ def successors(s):
             else:
                 yield((0, x + y, z), x)
         #to bottle 3
-        elif space3 > 0: 
+        if space3 > 0: 
             if x > space3:
                 yield((x - space3, y, 3), space3)
             else:
@@ -35,7 +35,7 @@ def successors(s):
             else:
                 yield((x + y, 0, z), y)
         #to bottle 3
-        elif space3 > 0: 
+        if space3 > 0: 
             if y > space3:
                 yield((x, y - space3, 3), space3)
             else:
@@ -49,7 +49,7 @@ def successors(s):
             else:
                 yield((x + z, y, 0), z)
         #to bottle 5
-        elif space5 > 0: 
+        if space5 > 0: 
             if z > space5:
                 yield((x, 5, z - space5), space5)
             else:
