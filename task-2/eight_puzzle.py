@@ -51,4 +51,6 @@ def h1(s):
 def h3(s):
     # implement this function
     board, _, _ = s
+    #goal = 
+    #temp_b =
     return 0
