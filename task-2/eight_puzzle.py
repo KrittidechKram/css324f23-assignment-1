@@ -51,6 +51,26 @@ def h1(s):
 def h3(s):
     # implement this function
     board, _, _ = s
+
+    # This Commented Code give the Number of Visited States = 230
+    # ============================================================
+    # result = 0
+    # goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+    # for i in goal:
+    #     for j in board:
+    #         if i==j and i!=0:
+    #             g = goal.index(i)
+    #             b = board.index(j)
+    #             cond = abs(g-b)%3
+    #             x = m.ceil(abs(g-b)/3)
+    #             if cond == 2:
+    #                 result += x + 1
+    #             else:
+    #                 result += x
+    # return result
+    # ============================================================
+
+    # This Commented Code give the Number of Visited States = 124
     result = 0
     goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     for i in goal:
@@ -58,10 +78,7 @@ def h3(s):
             if i==j and i!=0:
                 g = goal.index(i)
                 b = board.index(j)
-                cond = abs(g-b)%3
-                x = m.ceil(abs(g-b)/3)
-                if cond == 2:
-                    result += x + 1
-                else:
-                    result += x
+                rowGoal, colGoal = g//3, g%3
+                rowBoard, colBoard = b//3, b%3
+                result += abs(rowGoal - rowBoard) + abs(colGoal - colBoard)
     return result
